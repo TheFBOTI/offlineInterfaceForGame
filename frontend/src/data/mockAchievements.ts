@@ -9,6 +9,5 @@ export const achievements: Achievement[] = [
         completed: false,
         reward: "TBC",
         completedAt: 100,
-        overrideToggle: false
     }
 ]

@@ -6,5 +6,4 @@ export interface Achievement {
     completed: boolean
     completedAt: number
     reward: string
-    overrideToggle: boolean
 }
