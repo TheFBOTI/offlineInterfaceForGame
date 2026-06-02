@@ -15,7 +15,7 @@ function AchievementsPage() {
         )
     }
     return (
-        <div className="achievement-card">
+        <div className="achievement-list">
             {achievements.map((achievement) => (
                 <AchievementCard
                     key={achievement.id}

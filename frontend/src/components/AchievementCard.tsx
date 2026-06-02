@@ -7,7 +7,7 @@ type Props = {
 
 function AchievementCard({ achievement, onToggleComplete }: Props) {
     return (
-        <div>
+        <div className="achievement-card">
             <h2>{achievement.name}</h2>
             <p>{achievement.description}</p>
             <p>{achievement.progress}</p>
@@ -19,7 +19,6 @@ function AchievementCard({ achievement, onToggleComplete }: Props) {
                 />
                 Completed
             </label>            <p>{achievement.reward}</p>
-            <p>{achievement.id}</p>
             <button onClick={() => onToggleComplete(achievement.id)}>
                 Toggle Completion
             </button>

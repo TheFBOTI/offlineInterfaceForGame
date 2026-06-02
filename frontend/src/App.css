@@ -183,10 +183,16 @@
   }
 }
 
+.achievement-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
 .achievement-card {
   border: 1px solid #444;
   border-radius: 8px;
   padding: 16px;
-  margin: 12px;
-  max-width: 400px;
+
+  width: 300px;
 }
