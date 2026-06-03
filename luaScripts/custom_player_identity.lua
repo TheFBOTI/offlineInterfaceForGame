@@ -1,13 +1,27 @@
 local PLAYER_EVENT_ON_LOGIN = 3
 
--- Example display ID. Replace this with the model display ID you want.
-local MURLOC_DISPLAY_ID = 15926
-
--- local KOBOLD_DISPLAY_ID = 2153 --
 local function OnPlayerLogin(event, player)
-    player:SendBroadcastMessage("Eluna test: applying custom model")
+    local guid = player:GetGUIDLow()
 
-    player:SetDisplayId(MURLOC_DISPLAY_ID)
+    local query = CharDBQuery(
+            "SELECT identity_type, display_id " ..
+                    "FROM acore_playable_races.custom_player_identity " ..
+                    "WHERE guid = " .. guid
+    )
+
+
+    if query then
+        local identityType = query:GetString(0)
+        local displayId = query:GetUInt32(1)
+
+        player:SetDisplayId(displayId)
+
+        player:SendBroadcastMessage(
+                "Custom identity applied: " .. identityType .. " using display ID " .. displayId
+        )
+    else
+        player:SendBroadcastMessage("No custom identity found for this character.")
+    end
 end
 
 RegisterPlayerEvent(PLAYER_EVENT_ON_LOGIN, OnPlayerLogin)
