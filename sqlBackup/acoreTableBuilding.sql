@@ -20,3 +20,14 @@ GRANT ALL PRIVILEGES ON acore_playable_races.* TO 'acore'@'localhost';
 GRANT ALL PRIVILEGES ON acore_playable_races.* TO 'acore'@'127.0.0.1';
 
 FLUSH PRIVILEGES;
+
+## Decided to create a Database to keep the integrity of the original acore_characters  this database will let me alter  achievements and roguelite features of rewards for characters
+CREATE DATABASE acore_chaos_characters;
+
+GRANT ALL PRIVILEGES ON acore_chaos_characters.* TO 'acore'@'localhost';
+-- this one doesn't work as acore user doesn't exist in 127.0.0.1 - it's only in the localhost table--
+GRANT ALL PRIVILEGES ON acore_chaos_characters.* TO 'acore'@'127.0.0.1';
+
+## Had to drop a couple of tables after I tried to use the mysqldump into new database, as it was not successful first time
+DROP TABLE IF EXISTS acore_characters_2;
+
